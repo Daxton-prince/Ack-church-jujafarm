@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Church Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0A3D62" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log("Service Worker registered", reg))
+        .catch(err => console.error("Service Worker registration failed", err));
+    }
+  </script>
+  <link rel="manifest" href="manifest.json" />
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log("Service Worker registered", reg))
+      .catch(err => console.error("Service Worker registration failed", err));
+  }
+</script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color:#212638;
+      color: #333;
+    }
+    nav {
+      background-color: #00796b;
+      color:red;
+      padding: 0.5rem;
+      display: flex;
+      border-rafius:50px;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items:center;
+  z-index:1000;
+  backdrop-filter: blur(10px);
+    }
+    nav a {
+      color: white;
+      left:0;
+      font-size: 12px;
+      text-align:center;
+      margin-left:0%;
+      text-decoration: none;
+      font-weight:800px;
+      padding: 0.5rem 0.5rem;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover {
+      background    }
+
+    .page {
+      display: none;
+      padding: 20px;
+      margin-top:80px;
+    }
+    .active {
+      display: block;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    a{
+        text-decoration: none;
+        font-size:1.5rem;
+        color: #00796b;
+        display:hidden;
+        margin-left:20%;
+        font-weight:bolder;
+        
+    }
+    p{color:#00FFF1;
+        
+    }
+ 
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      color: #09FF00;
+    }
+    ul {
+      padding-left: 20px;
+      list-style: disc;
+    }
+    .section-header {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .card {
+      background:#0A0046;
+      border-radius: 50px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin: 1rem 0;
+      padding: 1rem;
+    }
+    .button {
+      display: inline-block;
+      background-color: #00796b;
+      color: white;
+      padding: 0.7rem 2rem;
+      font-weight: 600;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #004d40;
+    }
+    footer {
+      background-color: #00796b;
+      color: white;
+        position: fixed;
+  justify-content: center;
+  align-items:center;
+  margin-left:8%;
+  border-radius:70px;
+      margin-top:20%;
+        z-index:1000;
+      padding: 1rem;
+      text-align: center;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+    .modal1 {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255,255,255,0.05);
+   backdrop-filter: blur(80px);
+      box-shadow: 0 0 30px rgba(0,255,200,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s;;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal1-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 500px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 100px;
+      color:#2EFF00;
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+    .donate-btn {
+      background-color: #4CAF50;
+      padding: 0.7rem 2rem;
+      color: white;
+      font-weight: 600;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .donate-btn:hover {
+      background-color: #388e3c;
+    }
+    .close {
+    color: #aaa;
+    float: right;
+    font-size: 88px;
+    font-weight: bolder;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    background-color: aqua;
+    text-decoration: none;
+    cursor: pointer;
+}
+h3{text-align:center;
+    color:#80FF00;
+    
+}
+li{
+    color:#FFD300;
+}
+h4{
+    color:#00FFB8;
+}
+
+.light-mode {
+    
+}
+
+.dark-mode {
+    background-color: black;
+    color:white;
+}
+
+/* Menu styles */
+.menu {
+    position: fixed;
+    top: 70px;
+    background:#06C800;
+    font-weight:bolder;
+    right: 10px;
+}
+
+#dropdown {
+    display: none;
+    background: rgba(255,255,255,0.05);
+   backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(0,255,200,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s;;
+    position: absolute;
+    top: 35px;
+    color:aqua;
+    right:0px;
+    min-width: 180px;
+    max-height:700;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+}
+
+#dropdown a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    max-width:10;
+    color:white;
+}
+
+#dropdown a:hover {
+    background-color:transparent;
+}
+
+/* Modal styles */
+.modal2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    justify-content: baseline;
+    left: 0;
+    top: 70;
+    text-align: center;
+    width: 100%;
+    height: 50%;
+    background-color:transparent;
+}
+
+.modal2-content {
+        background: rgba(255,255,255,0.05);
+   backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(0,255,200,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s;;
+    margin-left: auto;
+    color: #000;
+    align-items:center;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    max-height: 500px;
+}
+
+.close {
+    color:red;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.label{
+    background:white;
+}
+  </style>
+</head>
+<body>
+    <div class="menu">
+        <button id="menuButton">☰</button>
+        <div id="dropdown" class="dropdown-content">
+            <a href="#" id="settings">Settings</a>
+        <a href="#" onclick="showPage('projects')"><b>Gen.Project</b></a>
+                <a href="#" onclick="showPage('about')"><b>About</b></a>
+        <a href="#" onclick="showPage('notices')">Notices</a>
+                <a href="#" onclick="showPage('readings')">Weekly Readings</a>
+            <a href="mailto:darkstonedj8@gmail.com" id="email">Feedback</a>
+            
+        </div>
+    </div>
+
+    <!-- Modal for Settings -->
+    <div id="settingsModal" class="modal2">
+        <div class="modal2-content">
+            <span class="close">&times;</span>
+            <h2>Settings</h2>
+            <label for="theme">Theme:</label>
+            <select id="theme">
+                <option value="light">Light Mode</option>
+                <option value="dark">Dark Mode</option>
+            </select>
+<br>
+<br>
+            <label for="font">Font Style:</label>
+            <select id="font">
+                <option value="Arial">Arial</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Courier">Courier</option>
+                <option value="sans-serif">sans-serif</option>
+            </select>
+        </div>
+    </div>
+
+   
+    <!--Services offered-->
+    <div id="projects" class="page">
+  <div class="container">
+   <p>As we look back and count our blessings that the Lord has showered unto us over the years, we envision the future of the church.<br> <br>
+   The church council is in the process of coming up with a four-year strategic plan that will cover a wholesome picture of our parish headquarter.<br> <br>
+   Among other projects in the plan include the following: - <br> <br>
+   a) Construction of modern washroom that is currently in the completion process. This is a project that will pass the test of time over many years to come. We are priviledged to witness it’s opening today. <br> <br>
+   b) The Mother’s Union Department is working tirelessly towards developing rental units on their plot within vicinity of the church. <br><br>
+   c) The church plans to complete the perimeter fence covering all her plots where the church sits.<br> <br>
+   d) The church through the development committee, plans to have well set landscaping project to suit the image of a parish headquarter.<br> <br>
+   e) Installation of extra screens to enhance the transmission of services with ease.<br> <br>
+   f) KAMA department intends to improve the standard of the procession way to the main entrance of the church to suit all weather conditions. As a support to our young church, we intend to purchase various musical instruments for our Sunday School as well as improving their welfare through the purchase of various playing items.<br> <br>
+   g) Planting of an extra church has always been a vision of this church in one of her plots, in a bid to bring closer the word of God to the people. This will be well laid in the strategic plan that will be ready towards the end of the year 2024.<br> <br>
+   h) This strategic plan will be facilitated by you and me through our selfless giving to the work of our Lord. <br>
+   <br>
+   The principal goal for the church is the payment of quota which helps run the church activities throughout the year. The quota payment will never be a headache if we give our tithes honestly, remit our thanksgivings and give offertory with our clean hearts. This will give the church freedom of financing the above projects through the fundraiser by various departments across the year. </p>
+        </div>
+    </div>
+    
+        <div id="notices" class="page">
+  <div class="container">
+   <h2><u>NOTICES ON 4/02/24</u></h2>    
+   <p>1. This month theme will be pastoral care and nature through LEADERSHIP.     <br>     <br>      2. On Wednesday we shall have a parish Ladies fellowship at juja house church from 10 am purpose to attend.       <br>      <br>              3. This month we will have AGM vs Election every church be ready for the exercise. Today is at Mt view church.     <br>    <br>                  4. We did resume for weekly prayers please plan to attend without fail for spiritual nourishment.      <br>       <br>  5. On 14 th Feb we shall have Ash Wednesday and valentine day at St Stephens church from 10 am to 11.30 am as a parish event. All men are invited for a meeting after that I request we avail ourselves.       <br> <br>
+   6. Registration should be ending by now both for local churches and ladies too. Please do it today in your respective prayer cells.</p>
+   </div>
+   </div>
+    <script src="script.js"></script>
+
+<nav>
+  <a href="#" onclick="showPage('home')">Home</a>
+  <a href="#" onclick="showPage('mothers')">Mothers Union</a>
+  <a href="#" onclick="showPage('youth')">Youth</a>
+  <a href="#" onclick="showPage('sundayschool')">Sunday School</a>
+  <a href="#" onclick="showPage('kama')">KAMA</a>
+  <a href="#" onclick="showDonationModal()">Donate</a>
+</nav>
+
+<div id="home" class="page active">
+  <div class="container">
+    <h2>WELCOME TO A.C.K ST STEPHENS CHURCH JUJAFARM PARISH </h2>
+    <p>We are glad you joined us. Explore our church ministries, projects, and donate to support the work of the Lord and You will be blessed.</p>
+  </div>
+</div>
+<nav1>
+      <a href="#" onclick="showPage('about')"><b></b></a>
+</nav1>
+<div id="about" class="page">
+  <div class="container">
+    <h2>The Church History</h2>
+    <h3><u>ACK ST. STEPHENS CHURCH JUJA FARM PARISH</u><br></h3>
+    <h4>
+    ACK ST. STEPHENS Juja farm is the mother church in ACK Juja farm parish. We take this opportunity to thank the Almighty God for His mercies and protection over this long journey that we celebrate today. The history of this church dates back in the year 1960 when the church was hosted by Juja farm primary school for a number of years. This was until the then directors of juja farm 1976 company allocated the church a plot where it sits today. Since inception,  the church has served under various parishes as listed below: <br>
+    
+    1. Thika parish<br>
+    2. Kiamwangi parish<br>
+    3. Juja parish<br>
+    4. Thiririka parish <br>
+    5. Juja farm parish <br>
+    <hr>
+    Through the commitment and resilience of members of the church then, the church organized a number of harambees to put up a permanent church. Though the church had very few members, many gave in kind and others labored to ensure that the church stands as it is today. Under the stewardship of the then Rev. Wilson Kinuthia, the ground breaking was done in the year 1994 and the permanent building started then. Before this period church was done by iron sheets where congregants worshipped for a number of years. 
+    In the year 1997, the then bishop of Mt. Kenya south, the Rt Rev Peter Njenga laid the foundation stone of the church on 2nd March 1997 and named it ACK ST. STEPHENS CHURCH as per the request of the church members. Today, twenty-seven years later we celebrate many blessings from God as a church. The church has been served by various vicars among them.<br>
+    1. Rev Wilson Kinuthia-1988<br>
+    2. Rev James Mwaniki-1997-1998<br> 
+    3. Rev Timothy Karangi -1998-1999<br>
+    4. Rev Beauter Kamau2001-2002<br>
+    5. Rev Joseph Waweru-1999-2000 <br>
+    6. Rev Francis Kinuthia -2001-2002<br>
+    7. Rev Solomon Kamungura -2002-2005<br>
+    8. Rev David Mwangi-2006-2010 <br>
+    9. Rev Anderson Njau-2011-2014<br>
+    10. Rev Daniel Kamande-2015-2017<br>
+    11. Rev John Wambua-2018-2021<br>
+    12. Rev Peter Karanja <br>
+    13. Rev Anthony Kuria-2021-2022
+    <br>14.Rev Samuel Ngobo-2022-2025<br>
+    15.And currently Rev (name)2025-...<br><br>
+    The church has had many evangelists who have always assisted the vicars in serving our great parish among them:<br>
+    • Rev Paul Muturi<br>
+    • Rev Danson Mwaniki <br>
+    • Ev. Nahashon Karanja<br>
+    • Ev. John Kangethe (late)<br>
+    • Ev. Stanley Wainana<br>
+    • And currently Ev. Simon Mburu<br><br>
+    The church has had a number of lay readers who has served the parish with dedication and commitment.<br> These are:<br>
+    • L/R Elijah Kamau (late)<br>
+    • L/R Jane Muchiri (Retired)<br>
+    • L/R Esther Irungu<br>
+    • L/R Emma Gicheru<br>
+    • L/R Terry Mwaura<br>
+    • L/R Emma Kariuki<br><br>
+    We take this opportunity to thank the clergy and the pastoral team for their sacrifices to ensure that the church stands firm as it is today.  <br>
+    <hr>
+    Due to long distances travelled by some Christians to attend services, ACK ST. Stephens later spread to other areas in the parish and planted other churches with the first. being Karima Simba in 1997, ACK Gikumari (now a parish), ACK Juja house, ACK Mountain view, ACK Mwireri and Salama church (now a parish). Juja farm churches were given a parish status in the year 2000 under the then Rev Beauter Kamau under the name Thiririka Parish. In the year 2002, under the request of the church council, the then Bishop Rt Rev Gideon Githiga changed the name of the parish to ACK Juja Farm Parish The church has carried out various development projects among them <br>
+    a. Planting of other churches as mentioned above and as the mother church ensuring that they stand on their feet to operate independently <br>
+    b. Mothers union have managed to buy a plot which they intend to develop to an income earning status. They also have been able to construct a modern kitchen which is used for various church occasions as the one we have today<br> c. The church now sits on four plots totaling to an acre whereby the extra plots have been purchased by generous contributions of the Christians through various departmental fundraisers.<br>
+    d. The church has constructed a vicarage which is now rented out and thus an income generating project<br>
+    e. The church constructed two standard classrooms and bought a van. The school project was run for two years and later suspended to enable the church lay strong foundations and fundamentals before another reopening. The classrooms are currently in use by our teens and Sunday school and for various meetings including at the parish level.<br>
+    f. The church has greatly improved the praise and worship instruments by modernizing the keyboard, microphones and installation of screens to enhance transmission of services.<br>
+    During this period, the church has had many church councils lead by various vice chairmen among them the late Elijah Kamau, the Late David Gikuma and currently Moses Kaniaru. It has not been a smooth journey but God has been on our side. We sincerely thank you, Christians in this great church for your continued support of the church through various departments. Your commitment, your tireless giving to the lord, your prayers are not taken for granted. may our lord bless you all and bless ACK St. Stephens church and our entire Juja farm parish.  In light of all above, we thank all for your immeasurable support towards these projects which continues to define the image of ACK. St. Stephen Juja farm parish. As we look back and count our blessings that the Lord has showered unto us over the years, we envision the future of the church. The church council is in the process of coming up with a four-year strategic plan that will cover a wholesome picture of our parish headquarter. Among other projects in the plan include the following: - <br>
+    a) Construction of modern washroom that is currently in the completion process. This is a project that will pass the test of time over many years to come. We are priviledged to witness it’s opening today.<br> b) The Mother’s Union Department is working tirelessly towards developing rental units on their plot within vicinity of the church.<br>
+    c) The church plans to complete the perimeter fence covering all her plots where the church sits.<br>
+    d) The church through the development committee, plans to have well set landscaping project to suit the image of a parish headquarter. <br>
+    e) Installation of extra screens to enhance the transmission of services with ease.<br>
+    f) KAMA department intends to improve the standard of the procession way to the main entrance of the church to suit all weather conditions. As a support to our young church, we intend to purchase various musical instruments for our Sunday School as well as improving their welfare through the purchase of various playing items.<br>
+    g) Planting of an extra church has always been a vision of this church in one of her plots, in a bid to bring closer the word of God to the people. This will be well laid in the strategic plan that will be ready towards the end of the year 2024.<br>
+    h) This strategic plan will be facilitated by you and me through our selfless giving to the work of our Lord. The principal goal for the church is the payment of quota which helps run the church activities throughout the year. The quota payment will never be a headache if we give our tithes honestly, remit our thanksgivings and give offertory with our clean hearts. This will give the church freedom of financing the above projects through the fundraiser by various departments across the year.<br>
+   <h2> <u><b>APPRECIATION</b></u></h2><br>
+   <h4>• The clergy and the pastoral team for their dedication and sacrifice <br>
+    • The Christian who have tirelessly supported the church<br>
+    • The church council for their stewardship <br> • Directors of Juja farm 1976 company who planted the seed through the first plot allocation to the church.<br>
+    • Various development committees throughout the years for ensuring church projects stands firm<br>
+    • Many guests who has always accepted to grace various departmental fundraisers for church projects<br>
+    • Various departments of the church among them mothers union, KAMA, KAYO and  children departments for their immeasurable support<br>
+    • Last but not least, to friends and various churches near and far who have been assisting our church to be the way it is today 
+</h4>
+</div>
+</div>
+<div id="mothers" class="page">
+  <div class="container">
+    <h2>Mothers Union</h2>
+    <p>Here are the current and upcoming projects:</p>
+    <div class="card">
+      <h3 class="section-header">Weekly Prayer Meetings</h3>
+      <p>Join us every week for a time of prayer and fellowship.</p>
+    </div>
+    <div class="card">
+      <h3 class="section-header">Support for Young Mothers</h3>
+      <p>We offer support for young mothers in need of guidance and assistance.</p>
+    </div>
+    <div class="card">
+      <h3 class="section-header">Outreach Programs</h3>
+      <p>Our outreach programs help provide food and necessities to the less fortunate in our community.</p>
+    </div>
+  </div>
+</div>
+
+<div id="youth" class="page">
+  <div class="container">
+    <h2>Youth Ministry</h2>
+    <p>Plans and activities for youth engagement:</p>
+    <div class="card">
+      <h3 class="section-header">Youth Empowerment Workshops</h3>
+      <p>Workshops designed to help young people with skills for life.</p>
+    </div>
+    <div class="card">
+      <h3 class="section-header">Annual Youth Conference</h3>
+      <p>Join our annual conference for youth across the region.</p>
+    </div>
+    <div class="card">
+      <h3 class="section-header">Community Clean-up</h3>
+      <p>Get involved in helping to clean and improve our local community.</p>
+    </div>
+  </div>
+</div>
+
+<div id="sundayschool" class="page">
+  <div class="container">
+    <h2>Sunday School</h2>
+    <p>Our Sunday school programs include:</p>
+    <div class="card">
+      <h3 class="section-header">Children's Bible Study</h3>
+      <p>Interactive bible studies for children aged 4-12.</p>
+    </div>
+    <div class="card">
+      <h3 class="section-header">Creative Arts & Music</h3>
+      <p>Encouraging creativity through music and arts in Sunday school.</p>
+    </div>
+    <div class="card">
+      <h3 class="section-header">Holiday Bible Camps</h3>
+      <p>Join us for special bible camps during holidays to grow spiritually.</p>
+    </div>
+  </div>
+</div>
+
+<div id="kama" class="page">
+  <div class="container">
+    <h2>KAMA (Kenya Assembly of Methodists)</h2>
+    <p>Our KAMA projects include:</p>
+    <div class="card">
+      <h3 class="section-header">Church Growth Initiatives</h3>
+      <p>Efforts to increase outreach and spread the gospel more widely.<br>
+      c) The church plans to complete the perimeter fence covering all her plots where the church sits.<br>
+d) The church through the development committee, plans to have well set landscaping project to suit the image of a parish headquarter.<br>
+e) Installation of extra screens to enhance the transmission of services with ease.<br>
+f) KAMA department intends to improve the standard of the procession way to the main entrance of the church to suit all weather conditions. As a support to our young church, we intend to purchase various musical instruments for our Sunday School as well as improving their welfare through the purchase of various playing items.<br>
+g) Planting of an extra church has always been a vision of this church in one of her plots, in a bid to bring closer the word of God to the people. This will be well laid in the strategic plan that will be ready towards the end of the year 2024.<br>
+h) This strategic plan will be facilitated by you and me through our selfless giving to the work of our Lord. The principal goal for the church is the payment of quota which helps run the church activities throughout the year. The quota payment will never be a headache if we give our tithes honestly, remit our thanksgivings and give offertory with our clean hearts. This will give the church freedom of financing the above projects through the fundraiser by various departments across the year.</p>
+    </div>
+    <div class="card">
+      <h3 class="section-header">Missionary Support</h3>
+      <p>Supporting missionaries who spread the word of God in remote areas.</p>
+    </div>
+  </div>
+</div>
+
+<div id="donationModal" class="modal1">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeDonationModal()">&times;</span>
+    <h2>Donate to Our Church</h2>
+    <p>Your donations help fund all of our church projects and outreach programs in:</p>
+    <li>Tithes</li>
+    <li>Offerings</li>
+    <li>Thanksgiving</li>
+    <li>10%</li><p>and you will be blessed</p>
+    <a href="https://mpesa.co.ke" class="donate-btn" target="_blank">Donate via M-Pesa</a>
+  </div>
+</div>
+
+<footer>
+    <address>follow us on :</address>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/PastorTMwangi?mibextid=rS40aB7S9Ucbxw6v" target="_blank">Facebook</a><b>||</b>
+    <a href="https://wa.me/254758838157" target="_blank">WhatsApp</a>
+    
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  function showDonationModal() {
+    document.getElementById('donationModal').style.display = 'flex';
+  }
+
+  function closeDonationModal() {
+    document.getElementById('donationModal').style.display = 'none';
+  }
+  
+      // Smooth Scroll
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        target.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+// Menu dropdown
+const menuButton = document.getElementById('menuButton');
+const dropdown = document.getElementById('dropdown');
+menuButton.addEventListener('click', () => {
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+});
+
+// Settings modal
+const settings = document.getElementById('settings');
+const settingsModal = document.getElementById('settingsModal');
+const closeModal = document.querySelectorAll('.close');
+
+settings.addEventListener('click', () => {
+    settingsModal.style.display = 'block';
+});
+
+// About modal
+const about = document.getElementById('about');
+const aboutModal = document.getElementById('aboutModal');
+
+about.addEventListener('click', () => {
+    aboutModal.style.display = 'block';
+});
+
+// Close modals
+closeModal.forEach(btn => {
+    btn.addEventListener('click', () => {
+        settingsModal.style.display = 'none';
+        aboutModal.style.display = 'none';
+    });
+});
+
+// Dark and Light Mode Toggle
+const themeSelector = document.getElementById('theme');
+themeSelector.addEventListener('change', (e) => {
+    if (e.target.value === 'dark') {
+        document.body.classList.remove('light-mode');
+        document.body.classList.add('dark-mode');
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+    }
+});
+
+// Font Style Toggle
+const fontSelector = document.getElementById('font');
+fontSelector.addEventListener('change', (e) => {
+    document.body.style.fontFamily = e.target.value;
+});
+
+// Logout confirmation
+const logout = document.getElementById('logout');
+logout.addEventListener('click', () => {
+    const confirmLogout = confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+        window.location.href = 'grocers,serial,gas order and supply website.html'; // Redirect to login or sign-up page
+    }
+});
+
+// Exit to previous page
+const exit = document.getElementById('exit');
+exit.addEventListener('click', () => {
+    window.history.back();
+});
+
+</script>
+
+</body>
+</html>
