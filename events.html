@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events page module</title>
+    <link rel="stylesheet" href="styles.css" />
+ <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+    <header>
+
+  <!--Main content-->
+<div class="brand">
+          <a href="#" class="logo">CH</a>
+<div>
+<strong>ACK ST. STEPHEN BORDER CHURCH</strong><br/><small class="muted">Juja Chai Road/Muhaka</small>
+</div>
+     <div class="nav-container">
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                Menu
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="Index2.html">Home</a></li>
+                    <li><a href="Index2.html">About</a></li>
+                    <li><a href="#events" class="active">Events</a></li>
+                    <li><a href="Index2.html">Sermons</a></li>
+                    <li><a href="Index2.html">Donate</a></li>
+                    <li><a href="Index2.html">Contact</a></li>
+                </ul>
+            </nav>
+     </div>  
+</header>
+<main>
+ <!-- Event Filters -->
+        <section class="filters">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Events</button>
+                    <button class="filter-btn" data-filter="sunday">Sunday Services</button>
+                    <button class="filter-btn" data-filter="bible-study">Bible Study</button>
+                    <button class="filter-btn" data-filter="prayer">Prayer Meetings</button>
+                    <button class="filter-btn" data-filter="special">Special Events</button>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search events...">
+                    <button class="search-btn">🔍</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Grid -->
+        <section class="events-section">
+            <div class="container">
+                <div class="events-grid" id="eventsGrid">
+                    <!-- Events will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Add New Event Modal (Optional for Admin) -->
+        <div id="eventModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Add New Event Record</h3>
+                <form id="eventForm">
+                    <input type="text" placeholder="Event Title" required>
+                    <input type="date" required>
+                    <select required>
+                        <option value="">Select Category</option>
+                        <option value="sunday">Sunday Service</option>
+                        <option value="bible-study">Bible Study</option>
+                        <option value="prayer">Prayer Meeting</option>
+                        <option value="special">Special Event</option>
+                    </select>
+                    <textarea placeholder="Event Description" rows="4"></textarea>
+                    <input type="url" placeholder="Image URL (optional)">
+                    <button type="submit">Save Event</button>
+                </form>
+            </div>
+        </div>
+    </main>
+<script src="main.js"></script>
+<script>
+     // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? 'X' 
+                : 'Menu';
+        });
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = 'Menu';
+                    }
+                }
+            });
+        });
+
+        // Sticky Header on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+
+
+</script>
+</body>
+</html>

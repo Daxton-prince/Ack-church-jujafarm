@@ -1,0 +1,535 @@
+:root{--accent:#4f46e5;
+  --muted:#adb35c;
+  --bg:#f8fafc}
+  *{box-sizing:border-box;
+       margin: 0;
+            padding: 0;
+            margin-top:0;
+            margin-bottom:0;
+            box-sizing: border-box;}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; 
+margin:0;
+width:100%;
+  background:rgb(2, 2, 75) 100%;
+  color:#0f172a; 
+  line-height:1.2;
+}
+
+  a{color:var(--accent);
+   text-decoration:none}
+   header{
+    background:linear-gradient(120deg,#0206fc 25%, #24c7f0 75%);
+   border-bottom:1px solid #0bfc02;
+  box-shadow: 4px solid rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            padding: 0px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+          animation: fadeInDown 1s ease;}
+   .container{max-width:980px;
+             margin:0 auto;
+             padding:20px}
+   
+    .mobile-menu-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            margin-right: 0%;
+            cursor: pointer;
+            color: #fffefe;
+        }
+        .mobile-menu-btn:hover{
+          transform: translateY(-20%);
+          transform: 0.3s;
+          background-color: transparent;
+          color: white;
+      
+        }
+
+   .brand{display:flex;
+    width: 145%;
+   align-items:center;
+   gap:12px}
+   .logo{width:56px;
+   height:56px;
+   border-radius:8px;
+   background:linear-gradient(135deg,#fff,#eef2ff);
+   display:flex;align-items:center;
+   justify-content:center;
+   font-weight:700;
+   color:var(--accent)}
+     .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            right:0%;
+          
+            margin: 0 auto;
+        }
+ .hero-img {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-img:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 5px solid #d4af37;
+            border-radius: 10px;
+            top: -20px;
+            left: -20px;
+            z-index: -1;
+        }
+
+       
+     nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fcfbfb;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #0414fa;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #0323da;
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+       
+   hero{display:block}
+   #hero{padding:28px 0;
+   text-align:center;
+   height: 100vh;
+   width:100%;
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('./images/Bible.jpg') no-repeat center center/cover;
+    animation: fadeIn 3.5s ease;}
+   h1{font-size:28px;
+    color: aliceblue;
+   margin:8px 0}
+   p.lead{color:wheat;
+   max-width:720px;
+   flex:1;
+   margin:0 auto}
+
+   .event{
+    background:blue;
+   color:#fff;
+   border:none;
+   display: inline-block;
+   padding:10px 16px;
+   border-radius:8px;
+   flex:10;
+   font-weight:600;
+   cursor:pointer;}
+.event:hover{
+  background-color: #24c7f0;
+  transform: translateY(-10%);
+  transition: all 0.3s;
+   }
+   cta{margin-top:16px;
+        gap: 2rem;}
+   btn{appearance:none}
+   button.cta{background:blue;
+   color:#fff;
+   border:none;
+   display: inline-block;
+   padding:10px 16px;
+   border-radius:8px;
+   flex:10;
+   font-weight:600;
+   cursor:pointer;}
+button.cta:hover{
+  background-color: #24c7f0;
+  transform: translateY(-10%);
+  transition: all 0.3s;
+}
+   section{padding:20px 0;
+   border-top:1px solid #eef2ff}
+   
+   grid{display:grid}
+   /* responsive grid */
+   .two{display:grid;
+   grid-template-columns:1fr;
+   gap:18px}
+   @media(min-width:760px){
+    .two{grid-template-columns:1fr 360px}
+    }
+    .card{
+      background:#fff;
+    padding:16px;
+    border-radius:10px;
+    box-shadow:0 6px 20px rgba(14,30,80,0.06)}
+    .events li{
+      margin-bottom:12px}
+    .sermon-list audio{
+      width:100%}
+      .brand{
+        width: 130%;
+      }
+    .footer{
+      padding:22px 0;
+    color:wheat;
+    font-size:14px;
+    text-align:center}
+    form.inline{
+      display:flex;
+    gap:8px;flex-wrap:wrap}
+    input,textarea{padding:10px;
+    border:1px solid #e6e6ef;
+    border-radius:8px;
+    width:100%}
+    input[type='submit']{
+      background:blue;
+    color:#fff;border:none;
+    padding:10px 14px;
+    margin: auto;
+    display: block;
+    border-radius:8px;
+    max-width: 400px;
+    cursor:pointer;
+  }
+    img.responsive{
+      max-width:100%;
+      height:auto;
+      border-radius:8px;
+      }
+      small.muted{
+        color:var(--muted)
+        }
+        .gallery{
+          display:flex;
+          gap:8px;
+          overflow:auto;
+          padding-bottom:8px;
+          }
+          .gallery img{
+            width:160px;
+            height:100px;
+            object-fit:cover;
+            border-radius:6px;
+            }
+            /* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox img {
+  max-width: 100%;
+  height: 400px;
+  width: 800px;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Controls */
+.nav1 {
+  position: absolute;
+  top: 50%;
+  font-size: 40px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 35px;
+  color: white;
+  cursor: pointer;
+}
+
+            .donation{
+              display:flex;
+              flex-direction:column;
+              gap:8px}
+              .whatsapp{
+                display:inline-flex;
+                align-items:center;
+                gap:8px;
+                background:#25D366;
+                color:#fff;
+                padding:8px 12px;
+                border-radius:8px}
+                code.snip{
+                  background:#0b1220;
+                  color:#e6eef8;
+                  padding:6px 8px;
+                  border-radius:6px;
+                  font-family: monospace;
+                  font-size:13px}
+                  small.note{
+                    display:block;
+                    color:var(--muted);
+                    font-size:13px;
+                    margin-top:6px;
+                  }
+                  
+                      @media(max-width:760px){
+                       .nav-container {
+                padding: 1rem;
+            }
+              nav ul {
+                position: fixed;
+                top: 70px;
+                left:-100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: rgb(8, 7, 7);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+            nav ul li {
+                margin: 1rem 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                left: 25px;
+                
+            }
+                          }
+                          html{
+    scroll-behavior: smooth;
+}
+.to-top{
+    position: fixed;
+    bottom: 20px;
+    right:20px;
+    color:white;
+    border:1px solid white;
+    width:2rem;
+    background-color: #1303f3;
+    border-radius: 50%;
+    justify-content: center;
+    margin: 0%;
+    display: flex;
+    cursor: pointer;
+}
+
+.to-top:hover{
+    background-color: transparent;
+    color:#2803fc;
+    border:1 px solid white;
+}
+.paymentStep{
+  color:white;
+  border: none;
+  font-size: 0.8rem;
+  border-bottom:1.5px solid #24c7f0;
+  background-color: #0414fa;
+  border-radius: 10%;
+  max-width: 100px;
+  cursor: pointer;
+}
+.paymentStep:hover{
+  content: 'click to see steps';
+  transform: translateY(-20%);
+  transition: 0.3s;
+  cursor: pointer;
+}
+#about{
+   animation: slideInFromLeft 2s ease-out;
+}
+#events{
+  animation: slideInFromRight 2s ease-out; 
+}
+#gallery{
+  animation:fadeInUp 2s ease-out ;
+}
+#footer{
+   animation:fadeInUp 2s ease-out ;
+}
+#sermons{
+    animation: slideInFromLeft 2s ease-out;
+
+}
+#btnn{
+  animation:fadeInUpp 3s ease-out ;
+}
+#donate{
+  animation: slideInFromRight 2s ease-out;
+}
+#contact{
+  animation: fadeInDown 4s ease-out;
+   animation: slideInFromLeft 2s ease-out;
+}
+#info{
+  animation: fadeIn 5s ease-out;
+  animation: fadeInDown1 4s ease-out;
+}
+/* Slide-in from left Animation */
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        /* Slide-in from Right Animation */
+        @keyframes slideInFromRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0%);
+            }
+        }
+
+  @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInDown1 {
+            from {
+                opacity: 0;
+                transform: translateY(-500px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+         @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+         @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+         @keyframes fadeInUpp {
+            from {
+                opacity: 0;
+                transform: translateY(700px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Transition Effects */
+/* Gallery Grid */
+.gallery-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 20px;
+    opacity: 0.6;
+}
+
+.gallery-item {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    opacity: 0;
+    transform: scale(0.8);
+    filter: brightness(0.7);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 1.2s forwards;
+}
+.slide-up {
+    animation: slideUp 1s forwards;
+}
+.zoom-out {
+    animation: zoomOut 1s forwards;
+}
+.rotate-in {
+    animation: rotateIn 1.2s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; filter: brightness(0.9); }
+}
+@keyframes slideUp {
+    from { transform: translateY(100px) scale(0.9); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+@keyframes zoomOut {
+    from { transform: scale(1.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+@keyframes rotateIn {
+    from { transform: rotate(-15deg) scale(0.8); opacity: 0; }
+    to { transform: rotate(0) scale(1); opacity: 1; }
+}
+
+/* Main Content Styles */
+#main-content {
+  display: flex;
+}

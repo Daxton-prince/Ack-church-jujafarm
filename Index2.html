@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>ACK BORDER CHURCH </title>
+<meta name="description" content="Simple, affordable church website. Mobile-friendly and M-Pesa ready."/>
+ <link rel="stylesheet" href="styles.css" />
+</head>
+<body id="top">
+<header>
+
+  <!--Main content-->
+<div class="brand">
+          <a href="#" class="logo">CH</a>
+<div>
+<strong>ACK ST. STEPHEN BORDER CHURCH</strong><br/><small class="muted">Juja Chai Road/Muhaka</small>
+</div>
+     <div class="nav-container">
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                Menu
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#sermons">Sermons</a></li>
+                    <li><a href="#donate">Donate</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+     </div>  
+</header>
+<main class="container">
+<section id="home" style="text-align:center;padding-top:22px">
+<div id="hero">
+<h1>Welcome to <span id="church-name">ACK ST STEPHEN BORDER CHURCH</span></h1>
+<p class="lead">A warm place for worship, community and service. Join us this Sunday at <strong>9:00 AM</strong>.</p>
+<div style="margin-top:12px">
+<a class="cta" href="#events"><button class="cta" id="btnn">See Upcoming Events</button></a>
+<a class="cta" href="#contact"><button class="cta" id="btnn">Send Us a message</button></a>
+
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="card">
+<h2>About Us</h2>
+<p>[Short church history, mission and a line about the pastor]</p>
+<div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+<div class="hero-img">
+    <img src="images/Candles.jpg" alt="church image" >
+
+</div>
+<div style="flex:1">
+<h3>Leadership</h3>
+<p>Pastor: <strong>[Pastor Name]</strong></p>
+<p class="muted">Contact: <a href="tel:+254700000000">+254 700 000 000</a></p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="events">
+<div class="two">
+<div class="card">
+    <div class="headline" style="display: inline-flex; gap:20% 4rem;">
+        <h2>Upcoming Events</h2> <br>
+        <a href="events.html" class="event">See more Events</a>
+
+    </div>
+
+<ul class="events">
+<li><strong>Sunday Service</strong> —Kanisa Mashinani on 29<sup>th</sup> 9:00 Am</li>
+<li><strong>Youth Fellowship</strong> — Wednesdays, 6:00 PM</li>
+<li><strong>Community Outreach</strong> — 29<sup>th</sup> Sunday <small><b>Kanisa Mashinani</b></small></li>
+</ul>
+</div>
+<div class="card" id="info">
+<h3>Quick Info</h3>
+<p class="muted">Service hours, contact person, parking info, or directions.</p>
+</div>
+</div>
+</section>
+
+<section id="sermons">
+<div class="card">
+<h2>Sermons</h2>
+<p class="muted">Listen to recent sermons or watch past messages.</p>
+<div class="sermon-list" id="sermon-list">
+<!-- Put MP3 or video links here -->
+<div style="margin-top:8px">
+<strong>Live Sermons coming soon</strong>
+<!--
+<audio controls src="media/sample-sermon.mp3">Your browser does not support audio.</audio>
+-->
+</div>
+</div>
+</div>
+</section>
+
+<section class="section gallery" id="gallery">
+<div class="card">
+<h2>Photo Gallery</h2>
+<div class="gallery">
+<img src="images/Bible.jpg" alt="event"/>
+<img src="images/Candles.jpg" alt="event"/>
+<img src="images/images (2).jpg" alt="event"/>
+<img src="images/images (19) 2.jpg" alt="event"/>
+<img src="images/images (22).jpg" alt="event"/>
+<img src="images/images (29) 2.jpg" alt="event"/>
+<img src="images/download (1).jpg" alt="event"/>
+<img src="images/download (3).jpg" alt="event"/>
+<img src="images/download (6) 2.jpg" alt="event"/>
+<img src="images/download (7).jpg" alt="event"/>
+
+
+</div>
+</div>
+<div class="lightbox" id="lightbox">
+  <button class="nav1 prev" id="prev">&#10094;</button>
+  <img id="lightboxImg">
+  <button class="nav1 next" id="next">&#10095;</button>
+  <span class="close" id="close">&times;</span>
+</div>
+
+</section>
+
+<section id="donate">
+<div class="card">
+<h2>Give / Donate</h2>
+<p class="muted">Support the ministry using M-Pesa or bank transfer.</p>
+<div class="donation">
+<label><strong>Equity Paybill :</strong></label>
+<code class="snip">Paybill: <span id="paybill">247 247</span> | Account: <span id="account">1520 280 426 261</span></code>
+<small class="note">Open your M-Pesa &gt; Lipa na M-Pesa &gt; Paybill &gt; Enter Paybill &gt; Account &gt; Amount &gt; Enter PIN &gt; Send</small>
+
+<!-- Optional: Quick Donation QR or Link -->
+<label style="margin-top:8px">Or donate via a quick link:</label>
+<input id="donation-amount" type="number" placeholder="Amount (KES)" />
+<button onclick="generateMpesaHint()" class="paymentStep" id="btnn">Get Payment Steps</button>
+<div id="mpesa-hint" class="muted" style="margin-top:8px"></div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="card">
+<h2>Contact</h2>
+<p>Questions? Reach out using the form or WhatsApp link below.</p>
+<form onsubmit="handleContact(event)">
+<input id="name" placeholder="Your name" required />
+<input id="email" placeholder="Email (optional)" />
+<textarea id="message" placeholder="Message / prayer request" rows="4"></textarea>
+<input type="submit" id="btnn" value="Send Message" />
+</form>
+<p style="margin-top:12px">Or message directly: <a class="whatsapp" id="btnn" href="https://wa.me/254700000000">WhatsApp</a></p>
+</div>
+
+</div>
+</section>
+
+</main>
+<footer class="footer" id="footer">
+<div class="container">© <span id="year"></span> ACK St Stephen Border Church <small>Muhaka</small>• Built with ♥ by Prince Daxton</div>
+
+</footer>
+ <a class="to-top" href="#top" aria-label="back to top">&uarr;</a>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+function generateMpesaHint(){
+  const amt = document.getElementById('donation-amount').value || 'KES X';
+  const paybill = document.getElementById('paybill').textContent;
+  const acc = document.getElementById('account').textContent;
+  document.getElementById('mpesa-hint').textContent = `Open M-Pesa → Lipa na M-Pesa → Paybill ${paybill} → Account ${acc} → Amount ${amt} → Enter PIN → Send.`;
+}
+function handleContact(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const msg = document.getElementById('message').value;
+  // This is a demo. In production, hook this to your backend or email service.
+  alert('Thanks ' + name + '! Your message was noted (demo).');
+  document.getElementById('name').value='';document.getElementById('email').value='';document.getElementById('message').value='';
+}
+ // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? 'X' 
+                : 'Menu';
+        });
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = 'Menu';
+                    }
+                }
+            });
+        });
+
+        // Sticky Header on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+
+ // Gallery Lightbox (would need additional HTML/CSS for full implementation)
+        const images = document.querySelectorAll('.gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const close = document.getElementById('close');
+
+let current = 0;
+
+function showImage(index) {
+  current = index;
+  lightboxImg.src = images[current].src;
+  lightbox.style.display = 'flex';
+}
+
+images.forEach((img, i) => {
+  img.onclick = () => showImage(i);
+});
+
+prev.onclick = () => showImage((current - 1 + images.length) % images.length);
+next.onclick = () => showImage((current + 1) % images.length);
+close.onclick = () => lightbox.style.display = 'none';
+
+lightbox.onclick = e => {
+  if (e.target === lightbox) lightbox.style.display = 'none';
+};
+
+</script>
+</body>
+</html>
