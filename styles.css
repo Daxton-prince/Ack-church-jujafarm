@@ -137,7 +137,7 @@ width:100%;
    text-align:center;
    height: 100vh;
    width:100%;
-   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('./images/Bible.jpg') no-repeat center center/cover;
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://www.google.com/imgres?q=ack%20border%20church&imgurl=https%3A%2F%2Flookaside.fbsbx.com%2Flookaside%2Fcrawler%2Fmedia%2F%3Fmedia_id%3D1954169644743102&imgrefurl=https%3A%2F%2Fwww.facebook.com%2FTV47KE%2Fposts%2Fchrist-the-king-ack-church-in-jila-kilifi-county-built-by-former-chief-of-defenc%2F1954170204743046%2F&docid=XE3BuevWXGUrRM&tbnid=53j_oEy84FK1NM&vet=12ahUKEwiS3eXAgLCVAxXu_rsIHVVnHQoQnPAOegQIPBAA..i&w=593&h=395&hcb=2&itg=1&ved=2ahUKEwiS3eXAgLCVAxXu_rsIHVVnHQoQnPAOegQIPBAA') no-repeat center center/cover;
     animation: fadeIn 3.5s ease;}
    h1{font-size:28px;
     color: aliceblue;
